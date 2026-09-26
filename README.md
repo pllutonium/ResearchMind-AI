@@ -10,7 +10,7 @@
 
 ---
 
-## 🌟 Key Highlights
+## Key Highlights
 
 - **5 Specialized Autonomous Agents**:
   - `01 · Literature Search`: Semantic corpus search synthesizing core findings and executive overviews.
@@ -26,7 +26,7 @@
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
                                   [ User / Researcher ]
@@ -66,7 +66,7 @@
 
 ---
 
-## 🚀 Quickstart Guide
+## Quickstart Guide
 
 ### 1. Clone the Repository & Set Up Virtual Environment
 
@@ -102,7 +102,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL_NAME=gemini-flash-lite-latest
 DEFAULT_LLM_BACKEND=gemini
 ```
-> 👉 *Get a free API key in 10 seconds at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).*
+>  *Get a free API key in 10 seconds at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).*
 
 ### 4. Launch the Interactive Dashboard
 
@@ -114,7 +114,7 @@ Open **`http://localhost:8501`** in your browser to start analyzing research pap
 
 ---
 
-## ⚡ Performance Benchmarks
+## Performance Benchmarks
 
 Measured on the 5-Agent Collaborative Pipeline:
 
@@ -129,7 +129,7 @@ Measured on the 5-Agent Collaborative Pipeline:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 researchmind-ai/
@@ -162,12 +162,12 @@ researchmind-ai/
 
 ---
 
-## 📄 Documentation
+## Documentation
 
 For deep technical details on the architecture, mathematical schemas, and vector indexing heuristics, refer to [`ResearchMind_AI_Codebase_Documentation.pdf`](ResearchMind_AI_Codebase_Documentation.pdf).
 
 ---
 
-## 📜 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
