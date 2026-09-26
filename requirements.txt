@@ -1,0 +1,33 @@
+# ==============================================================================
+# ResearchMind AI — Core Dependencies & Production Requirements
+# Multi-Agent Academic RAG System with Cloud & Local Substrates
+# Python Version: >= 3.10
+# ==============================================================================
+
+# --- Document Parsing & Optical Character Recognition (OCR) ---
+pymupdf>=1.24.0              # High-performance PDF text, font & structure extraction (fitz)
+pytesseract>=0.3.10          # Tesseract OCR wrapper for scanned / rasterized scientific PDFs
+pillow>=10.0.0               # Image processing backend for OCR image conversion (PIL)
+
+# --- Embeddings & Vector Search Substrate ---
+sentence-transformers>=3.0.0 # Dense vector embeddings (all-MiniLM-L6-v2)
+chromadb>=0.5.0              # Persistent local vector database for ANN similarity retrieval
+
+# --- Cloud & Local LLM Client Connectivity ---
+requests>=2.31.0             # High-throughput REST client for Google Gemini Cloud & Groq Cloud APIs
+ollama>=0.3.0                # Optional offline client for local Ollama runtime fallback
+
+# --- Relational Metadata Storage ---
+sqlalchemy>=2.0.0            # SQLite metadata persistence for indexed papers, pages & chunks
+
+# --- Production Dashboard & Data Presentation ---
+streamlit>=1.38.0            # Responsive web application framework with st.html support
+pandas>=2.2.0                # Data processing and tabular matrix representations
+tabulate>=0.9.0              # Formatted academic tables and Markdown exports
+
+# --- Publication-Grade Report Generation ---
+reportlab>=4.0.0             # Flowable multi-page PDF generation engine with styles & tables
+
+# --- Environment & Runtime Utilities ---
+python-dotenv>=1.0.0         # Secure environment variable loader for API keys (.env)
+tqdm>=4.66.0                 # Visual progress bars for batch ingestion pipelines

@@ -1,0 +1,20 @@
+# بيئة Python
+venv/
+__pycache__/
+*.pyc
+
+# متغيرات بيئية سرية
+.env
+
+# بيانات المشروع (كبيرة الحجم، مش هينفع ترفع على GitHub)
+data/raw_pdfs/*
+data/processed/*
+data/chroma_db/*
+data/metadata.sqlite3
+!data/raw_pdfs/.gitkeep
+!data/processed/.gitkeep
+
+# ملفات النظام
+.DS_Store
+.vscode/
+.idea/
