@@ -102,7 +102,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL_NAME=gemini-flash-lite-latest
 DEFAULT_LLM_BACKEND=gemini
 ```
->  *Get a free API key in 10 seconds at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).*
+>  *Get a free API [aistudio.google.com/apikey](https://aistudio.google.com/apikey).*
 
 ### 4. Launch the Interactive Dashboard
 
