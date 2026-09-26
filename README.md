@@ -159,13 +159,6 @@ researchmind-ai/
     ├── processed/                              # Intermediate extraction files
     └── chroma_db/                              # Persistent vector storage
 ```
-
----
-
-## Documentation
-
-For deep technical details on the architecture, mathematical schemas, and vector indexing heuristics, refer to [`ResearchMind_AI_Codebase_Documentation.pdf`](ResearchMind_AI_Codebase_Documentation.pdf).
-
 ---
 
 ## License
