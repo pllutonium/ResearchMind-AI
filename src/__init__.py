@@ -1,0 +1,1 @@
+"""ResearchMind AI Root Package."""

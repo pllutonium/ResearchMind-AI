@@ -1,0 +1,122 @@
+[
+  {
+    "id": "qa_01",
+    "question": "What is the computational complexity of the standard scaled dot-product self-attention mechanism with respect to sequence length?",
+    "ground_truth": "The computational complexity of scaled dot-product self-attention is quadratic O(n^2 * d) with respect to sequence length n, where d is the projection dimension.",
+    "contexts": [
+      "In the standard Transformer architecture, self-attention computes dot products between all pairs of positions in a sequence of length n. Specifically, computing the attention matrix Q * K^T requires O(n^2 * d) operations and O(n^2) memory footprint, resulting in quadratic computational and spatial complexity."
+    ],
+    "metadata": {
+      "topic": "Transformers & Attention Complexity",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "qa_02",
+    "question": "Why does scaled dot-product attention divide the query-key dot products by the square root of the key dimension dk?",
+    "ground_truth": "Scaled dot-product attention scales by 1/sqrt(dk) to prevent dot products from growing excessively large for large dimensions, which would push the softmax function into regions with vanishingly small gradients.",
+    "contexts": [
+      "We scale the dot products by 1 / sqrt(dk) because for large values of dk, the dot products grow large in magnitude, pushing the softmax function into regions with extremely small gradients. The scaling factor maintains unit variance under the assumption of independent zero-mean components."
+    ],
+    "metadata": {
+      "topic": "Softmax Gradient Stability",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "qa_03",
+    "question": "How does Reciprocal Rank Fusion (RRF) combine ranked results from dense vector retrieval and sparse BM25 retrieval?",
+    "ground_truth": "Reciprocal Rank Fusion calculates an aggregated score for each document by summing the reciprocal of a constant k plus its rank position across both dense and sparse result lists: RRF(d) = sum(1 / (k + rank_m(d))).",
+    "contexts": [
+      "Reciprocal Rank Fusion (RRF) is an unsupervised rank aggregation method that combines rankings from disparate retrieval systems without requiring score normalization. For each document d and retrieval system m, the score is defined as RRF_score(d) = sum_{m} 1 / (k + rank_m(d)), where k is typically set to 60."
+    ],
+    "metadata": {
+      "topic": "Hybrid Retrieval & RRF",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "qa_04",
+    "question": "What primary problem does Parent-Document hierarchical chunking solve in Retrieval-Augmented Generation?",
+    "ground_truth": "Parent-Document chunking decouples the small chunk size needed for granular semantic vector embedding retrieval from the larger, coherent parent context window needed by the LLM for accurate synthesis.",
+    "contexts": [
+      "Parent-Document or hierarchical chunking addresses the fundamental trade-off in RAG between retrieval precision and synthesis context. Small child chunks (e.g. 200 tokens) yield high cosine similarity and discriminative vector search, while resolving them to parent documents (e.g. 800 tokens) provides complete paragraph coherence and prevents sentence truncation during LLM generation."
+    ],
+    "metadata": {
+      "topic": "Hierarchical Chunking Architecture",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "qa_05",
+    "question": "What is the operational difference between a Bi-Encoder and a Cross-Encoder in neural information retrieval?",
+    "ground_truth": "A Bi-Encoder embeds query and document independently into dense vectors for fast approximate nearest neighbor search, whereas a Cross-Encoder processes query and document simultaneously through joint full cross-attention for higher reranking precision at higher computational cost.",
+    "contexts": [
+      "Bi-encoders encode the query and document independently into fixed-dimensional vectors, enabling sub-linear approximate nearest neighbor (ANN) retrieval via vector indexing. In contrast, Cross-encoders process the concatenated query-document pair through all transformer layers, allowing full token-to-token cross-attention, which produces superior relevance scoring at the cost of high latency."
+    ],
+    "metadata": {
+      "topic": "Neural Retrieval & Cross-Encoders",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "qa_06",
+    "question": "What are the two primary failure modes of Retrieval-Augmented Generation that Corrective RAG (CRAG) is designed to mitigate?",
+    "ground_truth": "Corrective RAG mitigates retrieval of irrelevant or low-quality documents that mislead the generator, and hallucination where the generator asserts unverified claims not present in the retrieved context.",
+    "contexts": [
+      "Standard RAG suffers when retrieved documents are irrelevant or corrupted with noise, leading to garbage-in garbage-out generation. Corrective RAG (CRAG) introduces self-correcting mechanisms: evaluating retrieval relevance to trigger external search fallbacks (such as web or arXiv), and grading candidate responses to eliminate ungrounded hallucinations."
+    ],
+    "metadata": {
+      "topic": "Corrective RAG (CRAG)",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "qa_07",
+    "question": "In empirical scaling laws for neural language models (Kaplan et al.), how does test loss scale with compute, dataset size, and parameter count?",
+    "ground_truth": "Test loss scales as a power law with compute budget, dataset size, and model parameter count, provided model size is scaled in tandem with data and training tokens.",
+    "contexts": [
+      "Kaplan et al. demonstrated that cross-entropy loss in autoregressive language models follows precise power-law scaling relationships with respect to compute budget (C), dataset size (D), and model parameters (N), exhibiting little dependence on hyperparameter tuning such as depth vs. width when models are sufficiently large."
+    ],
+    "metadata": {
+      "topic": "Empirical Scaling Laws",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "qa_08",
+    "question": "What is the primary architectural innovation of Low-Rank Adaptation (LoRA) for parameter-efficient fine-tuning?",
+    "ground_truth": "LoRA freezes the pre-trained model weights and injects trainable rank decomposition matrices into transformer attention layers, dramatically reducing trainable parameters and gradient memory without adding inference latency.",
+    "contexts": [
+      "Low-Rank Adaptation (LoRA) decomposes the weight update matrix delta W into two low-rank matrices A and B such that delta W = B * A, where B in R^(d x r) and A in R^(r x k) with rank r << min(d, k). The base pre-trained weights remain frozen, reducing GPU memory requirements for optimizer states by up to 3x."
+    ],
+    "metadata": {
+      "topic": "Parameter-Efficient Fine-Tuning (LoRA)",
+      "difficulty": "medium"
+    }
+  },
+  {
+    "id": "qa_09",
+    "question": "What is the mathematical formulation of BM25 term weighting and how does it prevent term saturation?",
+    "ground_truth": "BM25 uses the formula (tf * (k1 + 1)) / (tf + k1 * (1 - b + b * (doc_len / avg_len))) alongside inverse document frequency (IDF), where the hyperbolic curve asymptotically bounds the contribution of high term frequency tf.",
+    "contexts": [
+      "Okapi BM25 replaces linear term frequency weighting with a non-linear asymptotic saturation curve controlled by parameter k1: score = IDF * (tf * (k1 + 1)) / (tf + k1 * (1 - b + b * (|D| / avgdl))). As term frequency tf approaches infinity, its contribution approaches k1 + 1 rather than growing without bound."
+    ],
+    "metadata": {
+      "topic": "BM25 Sparse Retrieval",
+      "difficulty": "hard"
+    }
+  },
+  {
+    "id": "qa_10",
+    "question": "How does FlashAttention optimize the computation of self-attention on modern GPU hardware?",
+    "ground_truth": "FlashAttention uses tiling to compute the attention matrix in fast SRAM memory blocks without materializing the large N x N attention matrix in slow GPU High Bandwidth Memory (HBM), minimizing memory I/O bottlenecks.",
+    "contexts": [
+      "FlashAttention recognizes that multi-head attention is memory-bandwidth bound rather than compute bound. By restructuring the softmax computation with online scaling and tiling inputs into blocks that fit within on-chip GPU SRAM, FlashAttention computes exact attention with O(N) memory traffic to HBM instead of O(N^2), yielding 2-4x end-to-end wall-clock speedup."
+    ],
+    "metadata": {
+      "topic": "GPU Acceleration & FlashAttention",
+      "difficulty": "hard"
+    }
+  }
+]
